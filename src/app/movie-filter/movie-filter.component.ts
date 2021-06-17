@@ -10,9 +10,11 @@ import { Observable } from 'rxjs';
 export class MovieFilterComponent implements OnInit {
 
   languages$:Observable<string[]>;
+  locations$:Observable<string[]>;
 
   constructor(private movieService : MovieService) { 
     this.languages$ = this.movieService.getLanguages();
+    this.locations$ = this.movieService.getLocation();
   }
 
   ngOnInit(): void {

@@ -1,10 +1,21 @@
 <div >
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
         <mat-label>Language</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let language of languages$ | async" [value]="language">
-            {{language}}
-          </mat-option>
+        <mat-select >
+            <mat-option>-- Choose an option --</mat-option>
+            <mat-option *ngFor="let language of languages$ | async" [value]="language">
+                {{language}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Location</mat-label>
+        <mat-select >
+            <mat-option>-- Choose an option --</mat-option>
+            <mat-option *ngFor="let location of locations$ | async" [value]="location">
+                {{location}}
+            </mat-option>
         </mat-select>
       </mat-form-field>
 
