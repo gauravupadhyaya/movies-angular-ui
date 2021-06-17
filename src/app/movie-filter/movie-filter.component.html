@@ -1,0 +1,11 @@
+<div >
+    <mat-form-field appearance="fill">
+        <mat-label>Language</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let language of languages$ | async" [value]="language">
+            {{language}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+</div>

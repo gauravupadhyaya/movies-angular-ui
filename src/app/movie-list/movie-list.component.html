@@ -1,3 +1,29 @@
-<p *ngFor="let movie of movies">
-    {{movie|json}}
-</p>
+
+<mat-card class="example-card" *ngFor="let movie of movies$ | async">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image" [style.background-image]="'url(' + movie.Poster + ')'"></div>
+      <mat-card-title>{{movie.Title}}</mat-card-title>
+      <mat-card-subtitle>IMDB Rating : {{movie.imdbRating}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="still-container">
+      <div>
+        <mat-card-subtitle>Language : {{movie.Language}}</mat-card-subtitle>
+        <mat-card-subtitle>Location : {{movie.Location}}</mat-card-subtitle>
+        <mat-card-subtitle>listingType : {{movie.listingType}}</mat-card-subtitle>
+      </div>
+      <img mat-card-image [src]=" movie.Stills[0]" [alt]="movie.Title">
+      
+    </div>
+    
+    <mat-card-content>
+      <p>
+        {{movie.Plot}}
+      </p>
+      
+    </mat-card-content>
+
+    <mat-card-actions>
+      <a mat-raised-button color="accent" [routerLink]="['/detail']">Details</a>
+      <button mat-raised-button color="primary" >BOOK</button>
+    </mat-card-actions>
+  </mat-card>
