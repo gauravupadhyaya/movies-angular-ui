@@ -1,7 +1,7 @@
 <div >
     <mat-form-field appearance="outline">
         <mat-label>Language</mat-label>
-        <mat-select >
+        <mat-select (selectionChange)="onChange()" [(value)]="selectedLanguage">
             <mat-option>-- Choose an option --</mat-option>
             <mat-option *ngFor="let language of languages$ | async" [value]="language">
                 {{language}}
@@ -11,7 +11,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Location</mat-label>
-        <mat-select >
+        <mat-select (selectionChange)="onChange()" [(value)]="selectedLocation">
             <mat-option>-- Choose an option --</mat-option>
             <mat-option *ngFor="let location of locations$ | async" [value]="location">
                 {{location}}

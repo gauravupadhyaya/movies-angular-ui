@@ -13,11 +13,12 @@ export class MovieListComponent implements OnInit {
   movies$:Observable<Movie[]>;
 
   constructor(private movieService: MovieService) {
-    this.movies$ = movieService.getMovies();
+    this.movies$ = movieService.filteredMovies();
+    
    }
 
   ngOnInit(): void {
-    
+    this.movieService.selectLanguage.next('');
   }
 
 }

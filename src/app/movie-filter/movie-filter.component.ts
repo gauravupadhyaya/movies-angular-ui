@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Observable } from 'rxjs';
 
@@ -7,10 +7,12 @@ import { Observable } from 'rxjs';
   templateUrl: './movie-filter.component.html',
   styleUrls: ['./movie-filter.component.scss']
 })
-export class MovieFilterComponent implements OnInit {
+export class MovieFilterComponent implements OnInit, AfterViewInit {
 
   languages$:Observable<string[]>;
   locations$:Observable<string[]>;
+  selectedLanguage:string='';
+  selectedLocation:string='';
 
   constructor(private movieService : MovieService) { 
     this.languages$ = this.movieService.getLanguages();
@@ -18,7 +20,15 @@ export class MovieFilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+   
   }
-
+  ngAfterViewInit(){
+    setTimeout(()=>{
+      this.onChange();
+    })
+  }
+  onChange(){
+    this.movieService.selectLanguage.next(this.selectedLanguage);
+    this.movieService.selectLocation.next(this.selectedLocation);
+  }
 }
