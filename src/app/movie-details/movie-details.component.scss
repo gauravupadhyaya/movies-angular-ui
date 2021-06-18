@@ -1,0 +1,26 @@
+.poster-image{
+    width: 400px;
+}
+.still-image-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-end;
+    .still-image{
+        width: 300px;
+        margin-right: 40px;
+    }
+}
+mat-card-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.movie-description{
+    
+}
+.still-container{
+    width: 65%;
+}

@@ -63,4 +63,8 @@ export class MovieService {
         return filteredMovies;
     }))
   }
+
+  getMovie(imdbId:string|null){
+    return this.getMovies().pipe(map(movies=>movies.filter(movie=>movie.imdbID == imdbId)));
+  }
 }

@@ -1,1 +1,32 @@
-<a mat-raised-button color="accent" [routerLink]="['/']">Go to List</a>
+<mat-card class="example-card" *ngIf="movie">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image" [style.background-image]="'url(' + movie.Poster + ')'"></div>
+        <mat-card-title>{{movie.Title}}</mat-card-title>
+        <mat-card-subtitle>IMDB Rating : {{movie.imdbRating}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <img mat-card-image class="poster-image" [src]=" movie.Poster" [alt]="movie.Title">
+        <div class="still-container">
+            <div class="movie-description">
+                <div>
+                    <mat-card-subtitle>Language : {{movie.Language}}</mat-card-subtitle>
+                    <mat-card-subtitle>Location : {{movie.Location}}</mat-card-subtitle>
+                    <mat-card-subtitle>listingType : {{movie.listingType}}</mat-card-subtitle>
+                </div>
+                {{movie.Plot}}
+            </div>
+            <div class="still-image-container">
+                
+                <img mat-card-image class="still-image" [src]=" movie.Stills[0]" [alt]="movie.Title">
+                <img mat-card-image class="still-image" [src]=" movie.Stills[1]" [alt]="movie.Title">
+                <img mat-card-image class="still-image" [src]=" movie.Stills[2]" [alt]="movie.Title">
+            </div>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <a mat-raised-button color="accent" [routerLink]="['/']">Go to List</a>
+        <button mat-raised-button color="primary">BOOK</button>
+    </mat-card-actions>
+</mat-card>
