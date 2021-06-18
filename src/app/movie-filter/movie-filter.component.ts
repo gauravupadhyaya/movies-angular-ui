@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   templateUrl: './movie-filter.component.html',
   styleUrls: ['./movie-filter.component.scss']
 })
-export class MovieFilterComponent implements OnInit, AfterViewInit {
+export class MovieFilterComponent implements OnInit {
 
   languages$:Observable<string[]>;
   locations$:Observable<string[]>;
@@ -22,11 +22,7 @@ export class MovieFilterComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
    
   }
-  ngAfterViewInit(){
-    setTimeout(()=>{
-      this.onChange();
-    })
-  }
+  
   onChange(){
     this.movieService.selectLanguage.next(this.selectedLanguage);
     this.movieService.selectLocation.next(this.selectedLocation);

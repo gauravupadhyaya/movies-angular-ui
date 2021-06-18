@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../model/Movie';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements OnInit , AfterViewInit{
 
   movies$:Observable<Movie[]>;
 
@@ -19,6 +19,11 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit(): void {
     this.movieService.selectLanguage.next('');
+  }
+
+  ngAfterViewInit(){
+    this.movieService.selectLanguage.next('');
+    this.movieService.selectLocation.next('');
   }
 
 }
